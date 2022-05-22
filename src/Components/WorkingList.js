@@ -1,6 +1,7 @@
 /**
  * --------Installed-------
  * firebase
+ * react firebase hook
  * react router
  * tailwind css
  * daisyUI
