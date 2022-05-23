@@ -5,6 +5,7 @@
  * react router
  * tailwind css
  * daisyUI
+ * react-hook-form
  * 
  * 
  * --------completed---------
