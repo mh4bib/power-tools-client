@@ -16,7 +16,7 @@ const NavBar = () => {
         <li><Link to={"/"}>Home</Link></li>
         {!user ?
             <li><Link to={"/login"}>Login</Link></li> :
-            <li><button onClick={logout}>Logout</button></li>
+            <li><button onClick={logout}>Logout ({user.displayName})</button></li>
         }
     </>
     return (

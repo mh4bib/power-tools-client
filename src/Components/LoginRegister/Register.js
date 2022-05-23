@@ -1,7 +1,7 @@
 import React from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 
@@ -9,6 +9,11 @@ const Register = () => {
     // react hook form
     const { register, formState: { errors }, handleSubmit } = useForm();
     let errorMessage;
+
+    //navigating
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     // sign up section
     const [signInWithGoogle, GoogleUser, GoogleLoading, GoogleError] = useSignInWithGoogle(auth);
@@ -36,6 +41,10 @@ const Register = () => {
         await updateProfile({ displayName: data.name });
         console.log('updated name');
     };
+
+    if (user || GoogleUser) {
+        navigate(from, { replace: true });
+    }
 
     return (
         <div className="card md:w-96 bg-base-100 mx-4 md:mx-auto shadow-xl my-4">

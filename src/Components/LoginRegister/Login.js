@@ -1,6 +1,6 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import LoadingSpinner from '../Shared/LoadingSpinner';
@@ -8,6 +8,10 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 const Login = () => {
     const { register, formState: { errors }, handleSubmit } = useForm();
     let errorMessage;
+
+    const navigate = useNavigate();
+    const location = useLocation();
+    let from = location.state?.from?.pathname || "/";
 
     const [
         signInWithEmailAndPassword,
@@ -27,8 +31,12 @@ const Login = () => {
      }
 
     const onSubmit = data => {
-        signInWithEmailAndPassword(data.email, data.password)
+        signInWithEmailAndPassword(data.email, data.password);
     };
+
+    if (user || GoogleUser) {
+        navigate(from, { replace: true });
+    }
     return (
         <div className="card md:w-96 bg-base-100 mx-4 md:mx-auto shadow-xl my-4">
             <div className="card-body">

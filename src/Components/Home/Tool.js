@@ -1,7 +1,13 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Tool = ({ tool }) => {
-    const { name, picture, desc, minimum, available, price } = tool;
+    const {_id, name, picture, desc, minimum, available, price } = tool;
+
+    const navigate = useNavigate();
+    const purchase = id =>{
+        navigate(`/purchase/${id}`);
+    }
     return (
         <div className='bg-secondary flex flex-col justify-center items-center p-3 rounded-xl shadow-lg'>
             <img src={picture} alt="" className='rounded' />
@@ -10,7 +16,7 @@ const Tool = ({ tool }) => {
                 <p className='text-left'>{desc.slice(0, 100)}</p>
                 <p className='text-left'>Available Quantity: {available} pc</p>
                 <p className='text-left'>Minimum order: {minimum} pc</p>
-                <button className="btn btn-primary mt-2">purchase</button>
+                <button onClick={()=>purchase(_id)} className="btn btn-primary mt-2">purchase</button>
             </div>
         </div>
     );
