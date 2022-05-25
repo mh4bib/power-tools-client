@@ -11,8 +11,26 @@ const MakeAdmin = () => {
         return <LoadingSpinner></LoadingSpinner>
     }
 
-    const makeAdminBtn = () =>{
-        refetch();
+    const makeAdminBtn = (email) => {
+        fetch(`http://localhost:5000/users/admin/${email}`, {
+            method: 'PUT',
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => {
+                if (res.status === 403) {
+                    console.log('You have no right to modify users')
+                }
+                return res.json()
+            })
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    console.log(data);
+                    refetch();
+                    console.log('making admin successful')
+                }
+            })
     }
     return (
         <div>
@@ -27,13 +45,13 @@ const MakeAdmin = () => {
                     </tr>
                 </thead>
                 <tbody>
-                {
+                    {
                         data.map((user, index) => <tr
                             key={index}
                         >
                             <th>{index + 1}</th>
                             <td>{user.name}</td>
-                            <td><button class="btn btn-primary" onClick={makeAdminBtn}>Make Admin</button></td>
+                            <td><button class="btn btn-primary" onClick={() => makeAdminBtn(user.email)}>Make Admin</button></td>
                         </tr>)
                     }
                 </tbody>
