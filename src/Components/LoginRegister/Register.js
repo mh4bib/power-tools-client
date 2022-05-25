@@ -45,7 +45,7 @@ const Register = () => {
         console.log('updated name');
     };
 
-    if (user || GoogleUser) {
+    if (token) {
         navigate(from, { replace: true });
     }
 
@@ -69,7 +69,7 @@ const Register = () => {
                                 }
                             })} />
                         <label className="label">
-                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors.name.message}</span>}
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors?.name?.message}</span>}
                         </label>
                     </div>
                     <div className="form-control w-full max-w-xs">
@@ -91,8 +91,8 @@ const Register = () => {
                                 }
                             })} />
                         <label className="label">
-                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
-                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-600">{errors.email.message}</span>}
+                            {errors.email?.type === 'required' && <span className="label-text-alt text-red-600">{errors?.email?.message}</span>}
+                            {errors.email?.type === 'pattern' && <span className="label-text-alt text-red-600">{errors?.email?.message}</span>}
                         </label>
                     </div>
                     <div className="form-control w-full max-w-xs">

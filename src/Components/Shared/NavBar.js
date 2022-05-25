@@ -3,11 +3,16 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { Link } from 'react-router-dom';
 import auth from '../../firebase.init';
+import LoadingSpinner from './LoadingSpinner';
 
 const NavBar = () => {
   const [user, loading, error] = useAuthState(auth);
+  if(loading){
+    return <LoadingSpinner></LoadingSpinner>
+  }
     const logout = () => {
         signOut(auth);
+        localStorage.removeItem('accessToken');
     }
 
     const NavMenu = <>

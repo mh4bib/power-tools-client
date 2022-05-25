@@ -7,7 +7,7 @@ const MyOrders = () => {
     const email = user?.email;
     const [myOrders, setMyOrders] = useState([]);
     const [id, setId] = useState('');
-    console.log(id);
+    // console.log(id);
 
     // load item 
     useEffect(() => {
@@ -31,6 +31,7 @@ const MyOrders = () => {
     }
     return (
         <div class="overflow-x-auto">
+            <h2 className="font-bold text-3xl mb-4">My Orders</h2>
             <table class="table w-full">
                 {/* <!-- head --> */}
                 <thead>

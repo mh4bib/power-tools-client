@@ -7,7 +7,11 @@ const useToken = user => {
         const email = user?.user?.email;
         const newUser = {
             name:name,
-            email:email 
+            email:email
+            // education:null,
+            // location:null,
+            // phone:null,
+            // linkedInUrl:null
         };
         if (email) {
             fetch(`http://localhost:5000/users/${email}`, {
@@ -20,9 +24,9 @@ const useToken = user => {
             .then(res=>res.json())
             .then(data=>{
                 console.log(data);
-                // const accessToken = data.token;
-                // localStorage.setItem('accessToken', accessToken);
-                setToken(token);
+                const accessToken = data.token;
+                localStorage.setItem('accessToken', accessToken);
+                setToken(accessToken);
             })
         }
     },[user])

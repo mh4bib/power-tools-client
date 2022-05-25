@@ -11,6 +11,7 @@ import Dashboard from './Components/Dashboard/Dashboard';
 import MyOrders from './Components/Dashboard/MyOrders';
 import AddReview from './Components/Dashboard/AddReview';
 import MyProfile from './Components/Dashboard/MyProfile';
+import MakeAdmin from './Components/Dashboard/MakeAdmin';
 
 function App() {
   return (
@@ -24,7 +25,11 @@ function App() {
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='add-review' element={<AddReview></AddReview>}></Route>
-          <Route path='my-profile' element={<MyProfile></MyProfile>}></Route>
+          <Route path='my-profile/:email' element={<MyProfile></MyProfile>}></Route>
+          <Route path='manage-all-orders' element={<AddReview></AddReview>}></Route>
+          <Route path='add-product' element={<AddReview></AddReview>}></Route>
+          <Route path='make-admin' element={<MakeAdmin></MakeAdmin>}></Route>
+          <Route path='manage-products' element={<AddReview></AddReview>}></Route>
         </Route>
         <Route path='/purchase/:_id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
       </Routes>
