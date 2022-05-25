@@ -12,6 +12,10 @@ import MyOrders from './Components/Dashboard/MyOrders';
 import AddReview from './Components/Dashboard/AddReview';
 import MyProfile from './Components/Dashboard/MyProfile';
 import MakeAdmin from './Components/Dashboard/MakeAdmin';
+import AddTool from './Components/Dashboard/AddTool';
+import ManageTools from './Components/Dashboard/ManageTools';
+import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
+import NotFound from './Components/Shared/NotFound';
 
 function App() {
   return (
@@ -26,12 +30,13 @@ function App() {
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='add-review' element={<AddReview></AddReview>}></Route>
           <Route path='my-profile/:email' element={<MyProfile></MyProfile>}></Route>
-          <Route path='manage-all-orders' element={<AddReview></AddReview>}></Route>
-          <Route path='add-product' element={<AddReview></AddReview>}></Route>
+          <Route path='manage-all-orders' element={<ManageAllOrders></ManageAllOrders>}></Route>
+          <Route path='add-product' element={<AddTool></AddTool>}></Route>
           <Route path='make-admin' element={<MakeAdmin></MakeAdmin>}></Route>
-          <Route path='manage-products' element={<AddReview></AddReview>}></Route>
+          <Route path='manage-products' element={<ManageTools></ManageTools>}></Route>
         </Route>
         <Route path='/purchase/:_id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
       <Footer></Footer>

@@ -39,7 +39,7 @@ const MyOrders = () => {
     return (
         <div class="overflow-x-auto">
             <h2 className="font-bold text-3xl mb-4">My Orders</h2>
-            <table class="table w-full">
+            <table class="table w-full md:w-[80%] mx-auto">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
