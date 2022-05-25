@@ -5,11 +5,11 @@ import auth from '../../firebase.init';
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
-    const [myOrders, setMyOrders] = useState([]);
     const [id, setId] = useState('');
-    // console.log(id);
-
+    // console.log(email);
+    
     // load item 
+    const [myOrders, setMyOrders] = useState([]);
     useEffect(() => {
         const url = `http://localhost:5000/my-orders?email=${email}`;
         fetch(url,{
@@ -19,7 +19,9 @@ const MyOrders = () => {
             }
         })
             .then(res => res.json())
-            .then(data => setMyOrders(data))
+            .then(data => {
+                // console.log(data)
+                setMyOrders(data)})
     }, []);
 
     const handleCancelButton = id => {
@@ -50,10 +52,10 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        myOrders.map((order, index) => <tr
-                            key={index}
+                        myOrders.map(order => <tr
+                            key={order._id}
                         >
-                            <th>{index + 1}</th>
+                            {/* <th>{index + 1}</th> */}
                             <td>{order.name}</td>
                             <td>{order.quantity} piece</td>
                             <td><button class="btn btn-primary">Pay Now</button></td>
