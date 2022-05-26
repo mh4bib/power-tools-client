@@ -1,34 +1,38 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
-const Purchase = () => {
+const Purchase = ({setTotal}) => {
     const { _id } = useParams();
-    
-    const [tool, setTool] = useState([]);
+
+    const [tool, setTool] = useState({});
     useEffect(() => {
         const url = `http://localhost:5000/tools/${_id}`
         fetch(url)
-        .then(res => res.json())
-        .then(data => setTool(data))
+            .then(res => res.json())
+            .then(data => {
+                setTool(data)
+            })
     }, []);
-    
+
     const { name, picture, desc, minimum, available, price } = tool;
-    
+
     const [user, loading, error] = useAuthState(auth);
 
     const [orderQuantity, setOrderQuantity] = useState(0);
 
     const handleSubmit = event => {
         event.preventDefault();
-        
+
         const email = event.target.email.value;
         const phone = event.target.phone.value;
         const quantity = event.target.quantity.value;
         const address = event.target.address.value;
-        const newTool = {name, email, phone, quantity, address };
+        const totalPrice = price*quantity;
+        const newTool = { name, email, phone, quantity, address, totalPrice };
         // console.log(tool);
+        setTotal(totalPrice);
 
         const url = 'http://localhost:5000/ordered-tools';
         fetch(url, {
@@ -41,6 +45,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                
             })
     }
 
@@ -70,7 +75,7 @@ const Purchase = () => {
                         <span class="label-text">Your Address</span>
                     </label>
                     <input type="text" name='address' placeholder="Enter Your Address" className="input input-bordered w-full mb-[15px]" />
-                    <input type="submit" value="submit" className="btn w-full max-w-xs mx-auto" disabled={orderQuantity>available || orderQuantity<minimum}/>
+                    <input type="submit" value="submit" className="btn w-full max-w-xs mx-auto" disabled={orderQuantity > available || orderQuantity < minimum} />
                 </form>
             </div>
         </div>

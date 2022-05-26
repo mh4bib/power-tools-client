@@ -1,28 +1,47 @@
 import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
+const axios = require('axios').default;
+
 
 const MyOrders = () => {
     const [user] = useAuthState(auth);
     const email = user?.email;
     const [id, setId] = useState('');
+    const navigate = useNavigate();
+
     // console.log(email);
     
     // load item 
     const [myOrders, setMyOrders] = useState([]);
-    useEffect(() => {
+    const loadMyOrders = async()=>{
         const url = `http://localhost:5000/my-orders?email=${email}`;
-        fetch(url,{
-            method:'GET',
-            headers:{
-                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+        const { data } = await axios.get(url, {
+            headers: {
+                authorization: `Bearer ${localStorage.getItem('accessToken')}`
             }
-        })
-            .then(res => res.json())
-            .then(data => {
-                // console.log(data)
-                setMyOrders(data)})
-    }, []);
+        });
+        setMyOrders(data);
+    }
+    loadMyOrders();
+    // useEffect(() => {
+    //     const url = `http://localhost:5000/my-orders?email=${email}`;
+    //     fetch(url,{
+    //         method:'GET',
+    //         headers:{
+    //             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    //         }
+    //     })
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             // console.log(data)
+    //             setMyOrders(data)})
+    // }, []);
+
+    const handlePaymentBtn= id =>{
+        navigate(`/payment/${id}`);
+    }
 
     const handleCancelButton = id => {
         const url = `http://localhost:5000/my-orders/${id}`;
@@ -58,7 +77,7 @@ const MyOrders = () => {
                             {/* <th>{index + 1}</th> */}
                             <td>{order.name}</td>
                             <td>{order.quantity} piece</td>
-                            <td><button class="btn btn-primary">Pay Now</button></td>
+                            <td><button class="btn btn-primary" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
                             <td><label for="my-modal-5" class="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
                         </tr>)
                     }

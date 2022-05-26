@@ -16,8 +16,11 @@ import AddTool from './Components/Dashboard/AddTool';
 import ManageTools from './Components/Dashboard/ManageTools';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import NotFound from './Components/Shared/NotFound';
+import Payment from './Components/Purchase/Payment';
+import { useState } from 'react';
 
 function App() {
+  const [total, setTotal] = useState(0);
   return (
     <div className="App">
       <NavBar></NavBar>
@@ -35,7 +38,8 @@ function App() {
           <Route path='make-admin' element={<MakeAdmin></MakeAdmin>}></Route>
           <Route path='manage-products' element={<ManageTools></ManageTools>}></Route>
         </Route>
-        <Route path='/purchase/:_id' element={<RequireAuth><Purchase></Purchase></RequireAuth>}></Route>
+        <Route path='/purchase/:_id' element={<RequireAuth><Purchase setTotal={setTotal}></Purchase></RequireAuth>}></Route>
+        <Route path='/payment/:_id' element={<RequireAuth><Payment total={total}></Payment></RequireAuth>}></Route>
         <Route path='*' element={<NotFound></NotFound>}></Route>
       </Routes>
 
