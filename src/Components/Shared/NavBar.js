@@ -17,7 +17,7 @@ const NavBar = () => {
 
     const NavMenu = <>
         <li><Link to={"/"}>Home</Link></li>
-        <li><Link to={"/"}>Home</Link></li>
+        <li><Link to={"/portfolio"}>My Portfolio</Link></li>
         
         {!user ?
             <li><Link to={"/login"}>Login</Link></li> :
