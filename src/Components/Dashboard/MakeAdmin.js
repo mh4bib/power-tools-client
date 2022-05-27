@@ -50,8 +50,8 @@ const MakeAdmin = () => {
                             key={index}
                         >
                             <th>{index + 1}</th>
-                            <td>{user.name}</td>
-                            <td><button className="btn btn-primary" onClick={() => makeAdminBtn(user.email)}>Make Admin</button></td>
+                            <td>{user.email}</td>
+                            {user.role!=='admin' && <td><button className="btn btn-primary" onClick={() => makeAdminBtn(user.email)}>Make Admin</button></td>}
                         </tr>)
                     }
                 </tbody>

@@ -45,7 +45,7 @@ const Register = () => {
     }
 
     // form submit
-    const onSubmit = async data => {
+    const onSubmit = async(data) => {
         await createUserWithEmailAndPassword(data.email, data.password);
         await updateProfile({ displayName: data.name });
         console.log('updated name');

@@ -3,10 +3,10 @@ import { useEffect, useState } from 'react';
 const useToken = user => {
     const [token, setToken] = useState('');
     useEffect(()=>{
-        const name = user?.user?.displayName;
+        // const name = user?.user?.displayName;
         const email = user?.user?.email;
         const newUser = {
-            name:name,
+            // name:name,
             email:email
             // education:null,
             // location:null,
