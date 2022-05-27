@@ -10,7 +10,7 @@ import CheckoutForm from './CheckoutForm';
 
 const stripePromise = loadStripe('pk_test_51L3Xu3J0jQtteHR58Y1cLZCXMHi2LGuAywKlO7DJP3kTGke5wymI35mlvLLzmX3Z0R8zDx2H4BQvZ7w0xohaNV7P0036m2Oa8x');
 
-const Payment = (/* { total } */) => {
+const Payment = () => {
     // console.log(total);
 
     const { _id } = useParams();

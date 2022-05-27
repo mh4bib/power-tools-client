@@ -44,7 +44,7 @@ const ManageTools = () => {
                         >
                             <th>{index + 1}</th>
                             <td>{tool.name}</td>
-                            <td><label htmlFor="my-modal-1" className="btn btn-primary" onClick={() => setId(tool._id)}>Cancel</label></td>
+                            <td><label htmlFor="my-modal-1" className="btn btn-primary" onClick={() => setId(tool._id)}>Remove Tool</label></td>
                         </tr>)
                     }
 

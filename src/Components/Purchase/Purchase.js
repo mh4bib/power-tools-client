@@ -3,7 +3,7 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useParams, useNavigate } from 'react-router-dom';
 import auth from '../../firebase.init';
 
-const Purchase = ({setTotal}) => {
+const Purchase = () => {
     const { _id } = useParams();
 
     const [tool, setTool] = useState({});
@@ -32,7 +32,6 @@ const Purchase = ({setTotal}) => {
         const totalPrice = price*quantity;
         const newTool = { name, email, phone, quantity, address, totalPrice };
         // console.log(tool);
-        setTotal(totalPrice);
 
         const url = 'http://localhost:5000/ordered-tools';
         fetch(url, {

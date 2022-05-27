@@ -1,6 +1,7 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
+import reviewerPhoto from '../../images/anonymous.png';
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
@@ -9,7 +10,7 @@ const AddReview = () => {
     const handleSubmit = event => {
         event.preventDefault();
         const name = user.displayName;
-        const picture = user.photoURL;
+        const picture = user.photoURL || 'https://i.ibb.co/YRP6bVD/8b167af653c2399dd93b952a48740620.jpg';
         const ratings = event.target.ratings.value;
         const comment = event.target.review.value;
         // console.log(tool);
@@ -30,7 +31,7 @@ const AddReview = () => {
     }
 
     return (
-        <div className='card md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4'>
+        <div className='md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4 rounded-xl'>
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">Add Review</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>
