@@ -71,10 +71,10 @@ const MyOrders = () => {
                 </thead>
                 <tbody>
                     {
-                        myOrders.map(order => <tr
+                        myOrders.map((order, index) => <tr
                             key={order._id}
                         >
-                            {/* <th>{index + 1}</th> */}
+                            <th>{index + 1}</th>
                             <td>{order.name}</td>
                             <td>{order.quantity} piece</td>
                             {order.paid?
@@ -82,7 +82,11 @@ const MyOrders = () => {
                             :
                             <td><button className="btn btn-primary" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
                             }
-                            {!order.paid && <td><label htmlFor="my-modal-5" className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>}
+                            {!order.paid?
+                            <td><label htmlFor="my-modal-5" className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
+                            :
+                            <td><p className='pl-4'>TrxId: {order.transactionId}</p></td>
+                            }
                         </tr>)
                     }
 
