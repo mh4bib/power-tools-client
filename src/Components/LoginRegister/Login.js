@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
@@ -23,7 +23,12 @@ const Login = () => {
     ] = useSignInWithEmailAndPassword(auth);
 
     const [token] = useToken(GoogleUser || user);
-
+    
+    useEffect(()=>{
+        if (user || GoogleUser) {
+            navigate(from, { replace: true });
+        }
+    },[user, GoogleUser, navigate, from])
 
     if (GoogleLoading || loading) {
         return <LoadingSpinner></LoadingSpinner>
@@ -37,9 +42,6 @@ const Login = () => {
         signInWithEmailAndPassword(data.email, data.password);
     };
 
-    if (user || GoogleUser) {
-        navigate(from, { replace: true });
-    }
     return (
         <div className="card md:w-96 bg-base-100 mx-4 md:mx-auto shadow-xl my-4">
             <div className="card-body">

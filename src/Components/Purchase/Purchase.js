@@ -55,24 +55,24 @@ const Purchase = ({setTotal}) => {
                 <img src={picture} alt="" className='w-[140px] mx-auto' />
                 <h3 className="font-bold text-3xl">{name}</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>
-                    <label class="label">
-                        <span class="label-text">Your Name</span>
+                    <label className="label">
+                        <span className="label-text">Your Name</span>
                     </label>
                     <input type="text" name='name' disabled value={user?.displayName || ''} className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Your Email</span>
+                    <label className="label">
+                        <span className="label-text">Your Email</span>
                     </label>
                     <input type="email" name='email' disabled value={user?.email || ''} className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Phone Number</span>
+                    <label className="label">
+                        <span className="label-text">Phone Number</span>
                     </label>
                     <input type="number" name='phone' placeholder="Phone Number" className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Product Quantity</span>
+                    <label className="label">
+                        <span className="label-text">Product Quantity</span>
                     </label>
                     <input onChange={e => setOrderQuantity(e.target.value)} type="number" name='quantity' placeholder="Enter Quantity" className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Your Address</span>
+                    <label className="label">
+                        <span className="label-text">Your Address</span>
                     </label>
                     <input type="text" name='address' placeholder="Enter Your Address" className="input input-bordered w-full mb-[15px]" />
                     <input type="submit" value="submit" className="btn w-full max-w-xs mx-auto" disabled={orderQuantity > available || orderQuantity < minimum} />

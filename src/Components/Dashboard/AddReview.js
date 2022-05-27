@@ -34,12 +34,12 @@ const AddReview = () => {
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">Add Review</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>
-                    <label class="label">
-                        <span class="label-text">Giv Rating out of 5</span>
+                    <label className="label">
+                        <span className="label-text">Giv Rating out of 5</span>
                     </label>
                     <input type="number" name='ratings' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Write Review</span>
+                    <label className="label">
+                        <span className="label-text">Write Review</span>
                     </label>
                     <textarea type="text" name='review' placeholder="Write Review Here" className="textarea textarea-bordered h-24 mb-4" />
                     <input type="submit" value="submit" className="btn w-full max-w-xs mx-auto"/>

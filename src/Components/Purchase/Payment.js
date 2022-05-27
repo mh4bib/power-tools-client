@@ -1,51 +1,54 @@
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
 import React, { useEffect, useState } from 'react';
+import { useQuery } from 'react-query';
 import { useParams } from 'react-router-dom';
+import LoadingSpinner from '../Shared/LoadingSpinner';
 import CheckoutForm from './CheckoutForm';
 // const axios = require('axios');
 
 
 const stripePromise = loadStripe('pk_test_51L3Xu3J0jQtteHR58Y1cLZCXMHi2LGuAywKlO7DJP3kTGke5wymI35mlvLLzmX3Z0R8zDx2H4BQvZ7w0xohaNV7P0036m2Oa8x');
 
-const Payment = ({ total }) => {
+const Payment = (/* { total } */) => {
     // console.log(total);
 
-    // const { _id } = useParams();
+    const { _id } = useParams();
 
     // const [orderedTool, setOrderedTool] = useState({});
-    // const loadOrders = async() =>{
+    
+    const url = `http://localhost:5000/ordered-tools/${_id}`;
+    const { data, isLoading } = useQuery(['orderedTools'], () => fetch(url)
+        .then(res => res.json())
+        )
+        console.log(data);
+
+    if (isLoading) {
+        return <LoadingSpinner></LoadingSpinner>
+    }
+
+    // useEffect(() => {
     //     const url = `http://localhost:5000/ordered-tools/${_id}`
-    //     const { data } = await axios.get(url,)
-    //     setOrderedTool(data)
-    // }
-    // loadOrders();
-    // const {totalPrice} = orderedTool;
-    // // useEffect(() => {
-    // //     const url = `http://localhost:5000/ordered-tools/${_id}`
-    // //     fetch(url)
-    // //         .then(res => res.json())
-    // //         .then(data => {
-    // //             setOrderedTool(data)
-    // //         })
-    // //     }, []);
+    //     fetch(url)
+    //         .then(res => res.json())
+    //         .then(data => {
+    //             setOrderedTool(data)
+    //         })
+    //     }, []);
     //     console.log(orderedTool.totalPrice);
-        // const {totalPrice} = orderedTool;
+    //     const {totalPrice} = orderedTool;
 
     return (
-        <div className='my-4'>
-            <div class="card w-96 bg-base-100 shadow-xl mx-auto">
-                <div class="card-body">
-                    <h1 class="card-title">Make Payment</h1>
-                    <p>please pay ${total}</p>
-                </div>
+        <div className='grid grid-cols-1 gap-4 m-4'>
+            <div className="card w-[100%] md:w-[40%] bg-base-100 shadow-xl mx-auto p-6">
+                    <h1 className="text-2xl font-semibold">Make Payment for {data.name}</h1>
+                    <p className='text-[18px]'>Total quantity: {data.quantity} pc</p>
+                    <p className='text-[18px]'>Total payable amount: ${data.totalPrice}</p>
             </div>
-            <div class="card w-96 bg-base-100 shadow-xl mx-auto">
-                <div class="card-body">
+            <div className="card w-[100%] md:w-[40%] bg-base-100 shadow-xl mx-auto p-6 pt-9">
                     <Elements stripe={stripePromise}>
-                        <CheckoutForm total={total} />
+                        <CheckoutForm data={data} />
                     </Elements>
-                </div>
             </div>
         </div>
     );

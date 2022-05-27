@@ -12,9 +12,9 @@ const ManageAllOrders = () => {
                 setOrders(data)})
     }, []);
     return (
-        <div class="overflow-x-auto">
+        <div className="overflow-x-auto">
             <h2 className="font-bold text-3xl mb-4">Manage All Orders</h2>
-            <table class="table w-full md:w-[80%] mx-auto">
+            <table className="table w-full md:w-[80%] mx-auto">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
@@ -31,8 +31,8 @@ const ManageAllOrders = () => {
                         >
                             <th>{index + 1}</th>
                             <td>{order.name}</td>
-                            <td><button class="btn btn-primary">Pending</button></td>
-                            <td><label /* for="my-modal-1" */ class="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
+                            <td><button className="btn btn-primary">Pending</button></td>
+                            <td><label /* htmlFor="my-modal-1" */ className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
                         </tr>)
                     }
 
@@ -40,15 +40,15 @@ const ManageAllOrders = () => {
             </table>
 
             {/* confirmation modal */}
-            {/* <input type="checkbox" id="my-modal-1" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box w-11/12 md:w-[600px] max-w-5xl">
+            {/* <input type="checkbox" id="my-modal-1" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box w-11/12 md:w-[600px] max-w-5xl">
 
-                    <h3 class="font-bold text-lg">Removing order</h3>
-                    <p class="py-4">Are you sure you want to remove this order??</p>
-                    <div class="modal-action">
-                        <label for="my-modal-1" class="btn" onClick={() => handleDeleteButton(id)}>YES</label>
-                        <label for="my-modal-1" class="btn">NO</label>
+                    <h3 className="font-bold text-lg">Removing order</h3>
+                    <p className="py-4">Are you sure you want to remove this order??</p>
+                    <div className="modal-action">
+                        <label htmlFor="my-modal-1" className="btn" onClick={() => handleDeleteButton(id)}>YES</label>
+                        <label htmlFor="my-modal-1" className="btn">NO</label>
                     </div>
                 </div>
             </div> */}

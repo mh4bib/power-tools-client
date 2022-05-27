@@ -15,29 +15,29 @@ const MyOrders = () => {
     
     // load item 
     const [myOrders, setMyOrders] = useState([]);
-    const loadMyOrders = async()=>{
-        const url = `http://localhost:5000/my-orders?email=${email}`;
-        const { data } = await axios.get(url, {
-            headers: {
-                authorization: `Bearer ${localStorage.getItem('accessToken')}`
-            }
-        });
-        setMyOrders(data);
-    }
-    loadMyOrders();
-    // useEffect(() => {
+    // const loadMyOrders = async()=>{
     //     const url = `http://localhost:5000/my-orders?email=${email}`;
-    //     fetch(url,{
-    //         method:'GET',
-    //         headers:{
-    //             'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+    //     const { data } = await axios.get(url, {
+    //         headers: {
+    //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
     //         }
-    //     })
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data)
-    //             setMyOrders(data)})
-    // }, []);
+    //     });
+    //     setMyOrders(data);
+    // }
+    // loadMyOrders();
+    useEffect(() => {
+        const url = `http://localhost:5000/my-orders?email=${email}`;
+        fetch(url,{
+            method:'GET',
+            headers:{
+                'authorization': `Bearer ${localStorage.getItem('accessToken')}`
+            }
+        })
+            .then(res => res.json())
+            .then(data => {
+                // console.log(data)
+                setMyOrders(data)})
+    }, []);
 
     const handlePaymentBtn= id =>{
         navigate(`/payment/${id}`);
@@ -56,9 +56,9 @@ const MyOrders = () => {
             })
     }
     return (
-        <div class="overflow-x-auto">
+        <div className="overflow-x-auto">
             <h2 className="font-bold text-3xl mb-4">My Orders</h2>
-            <table class="table w-full md:w-[80%] mx-auto">
+            <table className="table w-full md:w-[80%] mx-auto">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
@@ -77,8 +77,12 @@ const MyOrders = () => {
                             {/* <th>{index + 1}</th> */}
                             <td>{order.name}</td>
                             <td>{order.quantity} piece</td>
-                            <td><button class="btn btn-primary" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
-                            <td><label for="my-modal-5" class="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
+                            {order.paid?
+                            <td><p className='pl-4'>PAID</p></td>
+                            :
+                            <td><button className="btn btn-primary" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
+                            }
+                            {!order.paid && <td><label htmlFor="my-modal-5" className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>}
                         </tr>)
                     }
 
@@ -86,15 +90,15 @@ const MyOrders = () => {
             </table>
 
             {/* confirmation modal */}
-            <input type="checkbox" id="my-modal-5" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box w-11/12 md:w-[600px] max-w-5xl">
+            <input type="checkbox" id="my-modal-5" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box w-11/12 md:w-[600px] max-w-5xl">
                 
-                    <h3 class="font-bold text-lg">Cancelling Order</h3>
-                    <p class="py-4">Are you sure you want to cancel this order??</p>
-                    <div class="modal-action">
-                        <label for="my-modal-5" class="btn" onClick={() => handleCancelButton(id)}>YES</label>
-                        <label for="my-modal-5" class="btn">NO</label>
+                    <h3 className="font-bold text-lg">Cancelling Order</h3>
+                    <p className="py-4">Are you sure you want to cancel this order??</p>
+                    <div className="modal-action">
+                        <label htmlFor="my-modal-5" className="btn" onClick={() => handleCancelButton(id)}>YES</label>
+                        <label htmlFor="my-modal-5" className="btn">NO</label>
                     </div>
                 </div>
             </div>

@@ -35,7 +35,7 @@ const MakeAdmin = () => {
     return (
         <div>
             <h1 className="font-bold text-3xl my-4">make admin</h1>
-            <table class="table w-full md:w-[50%] mx-auto">
+            <table className="table w-full md:w-[50%] mx-auto">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
@@ -51,7 +51,7 @@ const MakeAdmin = () => {
                         >
                             <th>{index + 1}</th>
                             <td>{user.name}</td>
-                            <td><button class="btn btn-primary" onClick={() => makeAdminBtn(user.email)}>Make Admin</button></td>
+                            <td><button className="btn btn-primary" onClick={() => makeAdminBtn(user.email)}>Make Admin</button></td>
                         </tr>)
                     }
                 </tbody>

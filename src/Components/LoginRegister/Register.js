@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useCreateUserWithEmailAndPassword, useSignInWithGoogle, useUpdateProfile } from 'react-firebase-hooks/auth';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -28,6 +28,12 @@ const Register = () => {
 
     const [token] = useToken(GoogleUser || user);
 
+    useEffect(()=>{
+        if (token) {
+            navigate(from, { replace: true });
+        }
+    },[from, navigate, token])
+
     // loading
     if (GoogleLoading || loading || updating) {
         return <LoadingSpinner></LoadingSpinner>
@@ -44,10 +50,6 @@ const Register = () => {
         await updateProfile({ displayName: data.name });
         console.log('updated name');
     };
-
-    if (token) {
-        navigate(from, { replace: true });
-    }
 
     return (
         <div className="card md:w-96 bg-base-100 mx-4 md:mx-auto shadow-xl my-4">

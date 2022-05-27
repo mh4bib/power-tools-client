@@ -30,28 +30,28 @@ const AddTool = () => {
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">Add A New Tool</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>
-                    <label class="label">
-                        <span class="label-text">Tool Name</span>
+                    <label className="label">
+                        <span className="label-text">Tool Name</span>
                     </label>
                     <input type="text" name='name' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Description</span>
+                    <label className="label">
+                        <span className="label-text">Description</span>
                     </label>
                     <input type="text" name='desc' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Minimum Order Quantity</span>
+                    <label className="label">
+                        <span className="label-text">Minimum Order Quantity</span>
                     </label>
                     <input type="num" name='minimum' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Available Quantity</span>
+                    <label className="label">
+                        <span className="label-text">Available Quantity</span>
                     </label>
                     <input type="num" name='available' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Price Per Product</span>
+                    <label className="label">
+                        <span className="label-text">Price Per Product</span>
                     </label>
                     <input type="num" name='price' className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Photo URL</span>
+                    <label className="label">
+                        <span className="label-text">Photo URL</span>
                     </label>
                     <input type="text" name='picture' className="input input-bordered w-full mb-[15px]" />
 

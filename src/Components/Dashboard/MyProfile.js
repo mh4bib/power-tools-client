@@ -49,26 +49,26 @@ const MyProfile = () => {
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">{user?.name}</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>
-                    <label class="label">
-                        <span class="label-text">Email</span>
+                    <label className="label">
+                        <span className="label-text">Email</span>
                     </label>
-                    <input type="email" name='email' value={user?.email} className="input input-bordered w-full mb-[15px]" readOnly />
-                    <label class="label">
-                        <span class="label-text">Education</span>
+                    <input type="email" name='email' value={user?.email || ''} className="input input-bordered w-full mb-[15px]" readOnly />
+                    <label className="label">
+                        <span className="label-text">Education</span>
                     </label>
-                    <input type="text" name='education' value={education1} onChange={e => setEducation(e.target.value)} className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Location</span>
+                    <input type="text" name='education' value={education1 || ''} onChange={e => setEducation(e.target.value)} className="input input-bordered w-full mb-[15px]" />
+                    <label className="label">
+                        <span className="label-text">Location</span>
                     </label>
-                    <input type="text" name='location' value={location} onChange={e => setLocation(e.target.value)} className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Phone</span>
+                    <input type="text" name='location' value={location || ''} onChange={e => setLocation(e.target.value)} className="input input-bordered w-full mb-[15px]" />
+                    <label className="label">
+                        <span className="label-text">Phone</span>
                     </label>
-                    <input type="let" name='phone' value={phone} onChange={e => setPhone(e.target.value)} className="input input-bordered w-full mb-[15px]" />
-                    <label class="label">
-                        <span class="label-text">Linked In link</span>
+                    <input type="let" name='phone' value={phone || ''} onChange={e => setPhone(e.target.value)} className="input input-bordered w-full mb-[15px]" />
+                    <label className="label">
+                        <span className="label-text">Linked In link</span>
                     </label>
-                    <input type="text" name='linkedInUrl' value={linkedInUrl} onChange={e => setLinkedInUrl(e.target.value)} className="input input-bordered w-full mb-[15px]" />
+                    <input type="text" name='linkedInUrl' value={linkedInUrl || ''} onChange={e => setLinkedInUrl(e.target.value)} className="input input-bordered w-full mb-[15px]" />
 
                     <input type="submit" value="update" className="btn w-full max-w-xs mx-auto" />
                 </form>
