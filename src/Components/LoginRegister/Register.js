@@ -121,11 +121,11 @@ const Register = () => {
                         </label>
                     </div>
                     {errorMessage}
-                    <input type="submit" value="login" className='btn w-full max-w-xs' />
+                    <input type="submit" value="register" className='btn w-full max-w-xs' />
                 </form>
                 <p><small>Already have an account ? <Link to={'/login'} className='text-primary'>login now</Link></small></p>
                 <div className="divider">OR</div>
-                <button onClick={() => signInWithGoogle()} className="btn btn-outline">CONTINUE WITH GOOGLE</button>
+                <button onClick={() => signInWithGoogle()} className="btn btn-outline text-neutral">CONTINUE WITH GOOGLE</button>
             </div>
         </div>
     );

@@ -31,7 +31,7 @@ const AddReview = () => {
     }
 
     return (
-        <div className='md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4 rounded-xl'>
+        <div className='md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4 rounded-xl text-neutral'>
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">Add Review</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>

@@ -1,28 +1,34 @@
 import React from 'react';
+import profilePic from '../../images/main_copy.jpeg';
 
 const MyPortfolio = () => {
     return (
-        <div>
-            <div>
-                <img src={""} alt="" />
-                <h2>Md. Mahiuddin Habib</h2>
+        <>
+        <h1 className='text-3xl mt-8 font-bold'>PORTFOLIO</h1>
+        <div className='grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 mx-4 md:mx-16 my-8'>
+            <div className='bg-green-200 p-12 rounded-xl'>
+                <img src={profilePic} alt="" className='w-[250px] mx-auto rounded-lg mb-4'/>
+                <h2 className='text-2xl'>Md. Mahiuddin Habib</h2>
                 <a href="mailto:mh.habib137@gmail.com">mh.habib137@gmail.com</a>
             </div>
-            <div>
-                <h3>Educational Info</h3>
+            <div className='bg-red-200 md:text-left p-12 rounded-xl'>
+                <h3 className='text-2xl font-semibold'>Educational Info</h3>
                 <p>studying BSC Engg. in Computer Science and Engineering </p>
-                <p>Mawlana Bhasani Science and Technology University</p>
+                <p className='mb-4'>Mawlana Bhasani Science and Technology University</p>
 
-                <h3>Skills</h3>
-                <p>Learned ReactJs, Javascript</p>
-                <p>Fluent in English</p>
+                <h3 className='text-2xl font-semibold'>Skills</h3>
+                <p>Learned ReactJs, Javascript, Tailwind css, Bootstrap, vanilla css and so on</p>
+                <p className='mb-4'>Fluent in English</p>
 
-                <h3>Projects I've done</h3>
-                <a href=' '>Books warehouse</a>
-                <a href=' '>Health Corner</a>
-                <a href=' '>Raffled Snakes</a>
+                <h3 className='text-2xl font-semibold'>Projects I've done</h3>
+                <ul>
+                    <li>Books warehouse</li>
+                    <li>Health Corner</li>
+                    <li>Raffled Snakes</li>
+                </ul>
             </div>
         </div>
+        </>
     );
 };
 

@@ -26,7 +26,7 @@ const AddTool = () => {
             })
     }
     return (
-        <div className='md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4 rounded-lg'>
+        <div className='md:w-[600px] bg-base-100 mx-4 md:mx-auto shadow-xl my-4 rounded-lg text-neutral'>
             <div className='card-body'>
                 <h3 className="font-bold text-3xl">Add A New Tool</h3>
                 <form onSubmit={handleSubmit} className='flex flex-col'>

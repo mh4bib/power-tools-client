@@ -8,7 +8,7 @@ import Tools from './Tools';
 
 const Home = () => {
     return (
-        <div>
+        <div className='text-neutral'>
             <Banner></Banner>
             <Tools></Tools>
             <Chart></Chart>

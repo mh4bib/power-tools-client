@@ -34,7 +34,7 @@ const MakeAdmin = () => {
     }
     return (
         <div>
-            <h1 className="font-bold text-3xl my-4">make admin</h1>
+            <h1 className="font-bold text-3xl my-4 text-neutral">make admin</h1>
             <table className="table w-full md:w-[50%] mx-auto">
                 {/* <!-- head --> */}
                 <thead>

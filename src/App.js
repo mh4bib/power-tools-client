@@ -17,11 +17,10 @@ import ManageTools from './Components/Dashboard/ManageTools';
 import ManageAllOrders from './Components/Dashboard/ManageAllOrders';
 import NotFound from './Components/Shared/NotFound';
 import Payment from './Components/Purchase/Payment';
-import { useState } from 'react';
 import MyPortfolio from './Components/MyPortfolio/MyPortfolio';
+import Blogs from './Components/Home/Blogs/Blogs';
 
 function App() {
-  const [total, setTotal] = useState(0);
   return (
     <div className="App">
       <NavBar></NavBar>
@@ -31,6 +30,7 @@ function App() {
         <Route path='/login' element={<Login></Login>}></Route>
         <Route path='/register' element={<Register></Register>}></Route>
         <Route path='/portfolio' element={<MyPortfolio></MyPortfolio>}></Route>
+        <Route path='/blogs' element={<Blogs></Blogs>}></Route>
         <Route path='/dashboard' element={<RequireAuth><Dashboard></Dashboard></RequireAuth>}>
           <Route index element={<MyOrders></MyOrders>}></Route>
           <Route path='add-review' element={<AddReview></AddReview>}></Route>

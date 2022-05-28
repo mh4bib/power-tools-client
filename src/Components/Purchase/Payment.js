@@ -39,7 +39,7 @@ const Payment = () => {
     //     const {totalPrice} = orderedTool;
 
     return (
-        <div className='grid grid-cols-1 gap-4 m-4'>
+        <div className='grid grid-cols-1 gap-4 m-4 text-neutral'>
             <div className="card w-[100%] md:w-[40%] bg-base-100 shadow-xl mx-auto p-6">
                     <h1 className="text-2xl font-semibold">Make Payment for {data.name}</h1>
                     <p className='text-[18px]'>Total quantity: {data.quantity} pc</p>

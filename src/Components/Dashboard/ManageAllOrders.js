@@ -53,7 +53,7 @@ const ManageAllOrders = () => {
     }
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto text-neutral">
             <h2 className="font-bold text-3xl mb-4">Manage All Orders</h2>
             <table className="table w-full md:w-[80%] mx-auto">
                 {/* <!-- head --> */}
@@ -74,18 +74,18 @@ const ManageAllOrders = () => {
                             <td>{order.name}</td>
                             {
                             order.shipped? 
-                            <td><p className='pl-4'>SHIPPED</p></td>
+                            <td><p className='pl-4 text-success'>SHIPPED</p></td>
                             :
                             order.paid?
-                            <td><p className='pl-4'>PENDING</p></td>
+                            <td><p className='pl-4 text-yellow-500'>PENDING</p></td>
                             :
-                            <td><p className='pl-4'>UNPAID</p></td>
+                            <td><p className='pl-4 text-red-600'>UNPAID</p></td>
                             }
                             {!order.paid?
-                            <td><label  htmlFor="my-modal-1"  className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
+                            <td><label  htmlFor="my-modal-1"  className="btn bg-red-500 border-red-500 text-white" onClick={() => setId(order._id)}>Cancel</label></td>
                             :
                             !order.shipped?
-                            <td><button className="btn btn-primary" onClick={() => handlePending(order._id)}>Approve</button></td>
+                            <td><button className="btn btn-success text-white" onClick={() => handlePending(order._id)}>Approve</button></td>
                             :
                             ''
                             }

@@ -9,7 +9,7 @@ const Dashboard = () => {
     const [user] = useAuthState(auth);
     const [admin] = useAdmin(user);
     return (
-        <div className="drawer drawer-mobile">
+        <div className="drawer drawer-mobile text-neutral">
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 <label htmlFor="my-drawer-2" className=" w-4/12 p-1 pl-0 lg:hidden "><span>Open</span><ChevronDoubleRightIcon className="w-[21px] inline"/></label>

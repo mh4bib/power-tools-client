@@ -9,7 +9,7 @@ const Tool = ({ tool }) => {
         navigate(`/purchase/${id}`);
     }
     return (
-        <div className='bg-secondary flex flex-col justify-center items-center p-3 rounded-xl shadow-lg'>
+        <div className='border-2 border-primary flex flex-col justify-center items-center p-3 rounded-xl shadow-lg'>
             <img src={picture} alt="" className='rounded' />
             <div className='ml-2'>
                 <h2><span className='text-4xl font-semibold'>{name}</span> <span className=''> (${price}/ pc)</span></h2>

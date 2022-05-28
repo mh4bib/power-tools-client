@@ -42,7 +42,7 @@ const Chart = () => {
         }
     ];
     return (
-        <div className='hidden md:grid grid-cols-2 gap-8 outline-dashed outline-3 outline-offset-2 outline-pink-500 rounded-xl m-16'>
+        <div className='hidden md:grid grid-cols-2 gap-8 outline-dashed outline-3 outline-offset-2 outline-accent rounded-xl m-16'>
             <div className='flex flex-col justify-center items-end'>
                 <h1 className='text-3xl font-bold'>OUR MARKET SHARE AROUND THE GLOBE</h1>
                 <p className='text-[20px]'>Here is a simple graph which shows the global domination of our product</p>
@@ -61,8 +61,8 @@ const Chart = () => {
                 <Radar
                     name="Mike"
                     dataKey="A"
-                    stroke="#8884d8"
-                    fill="#8884d8"
+                    stroke="#fbc13e"
+                    fill="#fbc13e"
                     fillOpacity={0.6}
                 />
             </RadarChart></div>

@@ -26,7 +26,7 @@ const ManageTools = () => {
     }
 
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto text-neutral">
             <h2 className="font-bold text-3xl mb-4">Manage Tools</h2>
             <table className="table w-full md:w-[60%] mx-auto">
                 {/* <!-- head --> */}
@@ -44,7 +44,7 @@ const ManageTools = () => {
                         >
                             <th>{index + 1}</th>
                             <td>{tool.name}</td>
-                            <td><label htmlFor="my-modal-1" className="btn btn-primary" onClick={() => setId(tool._id)}>Remove Tool</label></td>
+                            <td><label htmlFor="my-modal-1" className="btn bg-red-500 border-red-500 text-white" onClick={() => setId(tool._id)}>Remove Tool</label></td>
                         </tr>)
                     }
 

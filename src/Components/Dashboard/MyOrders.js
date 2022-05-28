@@ -56,7 +56,7 @@ const MyOrders = () => {
             })
     }
     return (
-        <div className="overflow-x-auto">
+        <div className="overflow-x-auto text-neutral">
             <h2 className="font-bold text-3xl mb-4">My Orders</h2>
             <table className="table w-full md:w-[80%] mx-auto">
                 {/* <!-- head --> */}
@@ -78,14 +78,14 @@ const MyOrders = () => {
                             <td>{order.name}</td>
                             <td>{order.quantity} piece</td>
                             {order.paid?
-                            <td><p className='pl-4'>PAID</p></td>
+                            <td><p className='pl-4 text-success font-semibold'>PAID</p></td>
                             :
-                            <td><button className="btn btn-primary" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
+                            <td><button className="btn btn-success text-white" onClick={() => handlePaymentBtn(order._id)}>Pay Now</button></td>
                             }
                             {!order.paid?
-                            <td><label htmlFor="my-modal-5" className="btn btn-primary" onClick={() => setId(order._id)}>Cancel</label></td>
+                            <td><label htmlFor="my-modal-5" className="btn btn-primary bg-red-500 text-white" onClick={() => setId(order._id)}>Cancel</label></td>
                             :
-                            <td><p className='pl-4'>TrxId: {order.transactionId}</p></td>
+                            <td><p className='pl-4'>TrxId: <span className='text-success font-bold'>{order.transactionId}</span></p></td>
                             }
                         </tr>)
                     }

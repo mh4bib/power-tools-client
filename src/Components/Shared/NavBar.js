@@ -18,6 +18,7 @@ const NavBar = () => {
     const NavMenu = <>
         <li><Link to={"/"}>Home</Link></li>
         <li><Link to={"/portfolio"}>My Portfolio</Link></li>
+        <li><Link to={"/blogs"}>Blogs</Link></li>
         
         {!user ?
             <li><Link to={"/login"}>Login</Link></li> :
@@ -28,7 +29,7 @@ const NavBar = () => {
         }
     </>
     return (
-        <div className="navbar bg-base-100">
+        <div className="navbar bg-primary text-neutral md:text-white">
   <div className="navbar-start">
     <div className="dropdown">
       <label tabIndex="0" className="btn btn-ghost lg:hidden">
@@ -38,7 +39,7 @@ const NavBar = () => {
         {NavMenu}
       </ul>
     </div>
-    <a className="btn btn-ghost normal-case text-xl">daisyUI</a>
+    <Link to={"/"} className="btn btn-ghost normal-case text-xl">POWEER TOOLS</Link>
   </div>
   <div className="navbar-end hidden lg:flex">
     <ul className="menu menu-horizontal p-0">
