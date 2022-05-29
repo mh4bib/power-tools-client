@@ -17,7 +17,7 @@ const AddReview = () => {
         const newReview = {name, picture,  comment, ratings};
 
         // post to server 
-        const url = 'http://localhost:5000/reviews';
+        const url = 'https://enigmatic-plains-10725.herokuapp.com/reviews';
         fetch(url, {
             method: 'POST',
             headers: {

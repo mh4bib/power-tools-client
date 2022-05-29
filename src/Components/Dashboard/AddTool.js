@@ -15,7 +15,7 @@ const AddTool = () => {
         // console.log(newTool);
 
         // adding to server 
-        const url = 'http://localhost:5000/tools';
+        const url = 'https://enigmatic-plains-10725.herokuapp.com/tools';
         fetch(url, {
             method: 'POST',
             headers: {

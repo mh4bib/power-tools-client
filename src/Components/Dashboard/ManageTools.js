@@ -4,7 +4,7 @@ const ManageTools = () => {
     const [id, setId] = useState('');
     const [tools, setTools] = useState([]);
     useEffect(() => {
-        const url = `http://localhost:5000/tools`;
+        const url = `https://enigmatic-plains-10725.herokuapp.com/tools`;
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -14,7 +14,7 @@ const ManageTools = () => {
 
     // delete from server and update in ui 
     const handleDeleteButton = id => {
-        const url = `http://localhost:5000/tools/${id}`;
+        const url = `https://enigmatic-plains-10725.herokuapp.com/tools/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

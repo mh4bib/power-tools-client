@@ -5,7 +5,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 const ManageAllOrders = () => {
     const [id, setId] = useState('');
     
-    const { data: orders, isLoading, refetch } = useQuery(['orderedTools'], () => fetch('http://localhost:5000/ordered-tools')
+    const { data: orders, isLoading, refetch } = useQuery(['orderedTools'], () => fetch('https://enigmatic-plains-10725.herokuapp.com/ordered-tools')
         .then(res => res.json())
     )
 
@@ -15,7 +15,7 @@ const ManageAllOrders = () => {
 
     const handlePending = (_id) =>{
         // adding role property to server 
-        fetch(`http://localhost:5000/ordered-tool/${_id}`, {
+        fetch(`https://enigmatic-plains-10725.herokuapp.com/ordered-tool/${_id}`, {
             method: 'PATCH',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -29,7 +29,7 @@ const ManageAllOrders = () => {
     }
 
     const handleDeleteButton = id => {
-        const url = `http://localhost:5000/my-orders/${id}`;
+        const url = `https://enigmatic-plains-10725.herokuapp.com/my-orders/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

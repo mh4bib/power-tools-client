@@ -12,7 +12,7 @@ const CheckoutForm = ({ data }) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('http://localhost:5000/create-payment-intent', {
+        fetch('https://enigmatic-plains-10725.herokuapp.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -79,7 +79,7 @@ const CheckoutForm = ({ data }) => {
             const payment = {
                 transactionId: paymentIntent.id
             }
-            fetch(`http://localhost:5000/ordered-tools/${_id}`, {
+            fetch(`https://enigmatic-plains-10725.herokuapp.com/ordered-tools/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

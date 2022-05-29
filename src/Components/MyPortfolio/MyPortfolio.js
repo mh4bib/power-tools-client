@@ -17,14 +17,14 @@ const MyPortfolio = () => {
                 <p className='mb-4'>Mawlana Bhasani Science and Technology University</p>
 
                 <h3 className='text-2xl font-semibold'>Skills</h3>
-                <p>Learned ReactJs, Javascript, Tailwind css, Bootstrap, vanilla css and so on</p>
-                <p className='mb-4'>Fluent in English</p>
+                <p>1. Learned ReactJs, Javascript, Tailwind css, Bootstrap, vanilla css and so on</p>
+                <p className='mb-4'>2. Fluent in English</p>
 
                 <h3 className='text-2xl font-semibold'>Projects I've done</h3>
                 <ul>
-                    <li><a href="#">Books warehouse</a></li>
-                    <li><a href="#">Health Corner</a></li>
-                    <li><a href="#">Raffled Snakes</a></li>
+                    <li><a href="https://books-warehouse-e0226.web.app/">1. Books Warehouse</a></li>
+                    <li><a href="https://health-corner-a79d1.web.app/">2. Health Corner</a></li>
+                    <li><a href="https://product-analysis-car.netlify.app/">3. Car Mania</a></li>
                 </ul>
             </div>
         </div>
