@@ -1,3 +1,17 @@
+# POWER TOOLS
+This is a client side application for POWER TOOLS
+
+see live preview of this project [here](https://github.com/facebook/create-react-app).
+
+## Features and Functionality
+* This is a fully Single Page Application
+* Used firebase to authenticate users
+* Functionality for admin
+* Secured APIs with json web token
+* Used nodejs in backend
+* Mongodb for storing data
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
