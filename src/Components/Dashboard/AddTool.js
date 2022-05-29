@@ -1,4 +1,5 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 
 const AddTool = () => {
     const handleSubmit = event => {
@@ -23,6 +24,7 @@ const AddTool = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                toast('Tool added');
             })
     }
     return (

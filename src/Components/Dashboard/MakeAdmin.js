@@ -1,5 +1,6 @@
 import React from 'react';
 import { useQuery } from 'react-query';
+import { toast } from 'react-toastify';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 
 const MakeAdmin = () => {
@@ -20,7 +21,7 @@ const MakeAdmin = () => {
         })
             .then(res => {
                 if (res.status === 403) {
-                    console.log('You have no right to modify users')
+                    toast.error('You have no right to modify users');
                 }
                 return res.json()
             })
@@ -28,7 +29,7 @@ const MakeAdmin = () => {
                 if (data.modifiedCount > 0) {
                     console.log(data);
                     refetch();
-                    console.log('making admin successful')
+                    toast.success('making admin successful');
                 }
             })
     }

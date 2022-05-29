@@ -19,6 +19,7 @@ import NotFound from './Components/Shared/NotFound';
 import Payment from './Components/Purchase/Payment';
 import MyPortfolio from './Components/MyPortfolio/MyPortfolio';
 import Blogs from './Components/Home/Blogs/Blogs';
+import { ToastContainer } from 'react-toastify';
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
       </Routes>
 
       <Footer></Footer>
+      <ToastContainer />
     </div>
   );
 }

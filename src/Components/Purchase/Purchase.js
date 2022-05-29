@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useForm, useFormState } from 'react-hook-form';
 import { useParams, useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 
 const Purchase = () => {
@@ -63,6 +64,7 @@ const Purchase = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                toast('Your order is placed successfully');
             })
     };
     //----------------

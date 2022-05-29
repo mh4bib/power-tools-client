@@ -1,5 +1,6 @@
 import { CardElement, useElements, useStripe } from '@stripe/react-stripe-js';
 import React, { useEffect, useState } from 'react';
+import { toast } from 'react-toastify';
 
 const CheckoutForm = ({ data }) => {
     const { _id, totalPrice } = data;
@@ -7,7 +8,6 @@ const CheckoutForm = ({ data }) => {
     const stripe = useStripe();
     const elements = useElements();
     const [cardError, setCardError] = useState('');
-    const [success, setSuccess] = useState('');
     const [processing, setProcessing] = useState(false);
     const [clientSecret, setClientSecret] = useState('');
 
@@ -73,7 +73,7 @@ const CheckoutForm = ({ data }) => {
         }
         else {
             setCardError('');
-            setSuccess('payment successful');
+            toast.success("payment successful");
             console.log(paymentIntent);
 
             const payment = {
@@ -120,7 +120,6 @@ const CheckoutForm = ({ data }) => {
             </form>
 
             {cardError && <p className='text-red-600'>{cardError}</p>}
-            {success && <p className='text-green-600'>{success}</p>}
         </div>
     );
 };

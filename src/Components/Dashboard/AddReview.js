@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
 import reviewerPhoto from '../../images/anonymous.png';
 
@@ -27,6 +28,7 @@ const AddReview = () => {
             .then(res => res.json())
             .then(result => {
                 console.log(result);
+                toast('Thank you for your feedback');
             })
     }
 
