@@ -1,7 +1,7 @@
 # POWER TOOLS
 This is a client side application for POWER TOOLS
 
-see live preview of this project [here](https://github.com/facebook/create-react-app).
+see live preview of this project [here](https://power-tools-bee92.web.app/).
 
 ## Features and Functionality
 * This is a fully Single Page Application
