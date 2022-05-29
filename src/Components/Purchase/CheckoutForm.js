@@ -74,7 +74,7 @@ const CheckoutForm = ({ data }) => {
         else {
             setCardError('');
             toast.success("payment successful");
-            console.log(paymentIntent);
+            // console.log(paymentIntent);
 
             const payment = {
                 transactionId: paymentIntent.id
@@ -90,7 +90,7 @@ const CheckoutForm = ({ data }) => {
                 .then(res => res.json())
                 .then(data => {
                     setProcessing(false);
-                    console.log(data);
+                    // console.log(data);
                 })
         }
     }
@@ -120,6 +120,7 @@ const CheckoutForm = ({ data }) => {
             </form>
 
             {cardError && <p className='text-red-600'>{cardError}</p>}
+            {processing && <p className='text-yellow-400'>processing your payment...</p>}
         </div>
     );
 };

@@ -20,7 +20,7 @@ const Payment = () => {
     const { data, isLoading } = useQuery(['orderedTools'], () => fetch(url)
         .then(res => res.json())
         )
-        console.log(data);
+        // console.log(data);
 
     // handle loading 
     if (isLoading) {
