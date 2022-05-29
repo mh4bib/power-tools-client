@@ -2,12 +2,11 @@ import React from 'react';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { toast } from 'react-toastify';
 import auth from '../../firebase.init';
-import reviewerPhoto from '../../images/anonymous.png';
 
 const AddReview = () => {
     const [user] = useAuthState(auth);
 
-    console.log(user);
+    // submitting review button
     const handleSubmit = event => {
         event.preventDefault();
         const name = user.displayName;
@@ -17,6 +16,7 @@ const AddReview = () => {
         // console.log(tool);
         const newReview = {name, picture,  comment, ratings};
 
+        // post to server 
         const url = 'http://localhost:5000/reviews';
         fetch(url, {
             method: 'POST',
@@ -27,7 +27,7 @@ const AddReview = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 toast('Thank you for your feedback');
             })
     }

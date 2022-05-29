@@ -12,6 +12,7 @@ const ManageTools = () => {
                 setTools(data)})
     }, []);
 
+    // delete from server and update in ui 
     const handleDeleteButton = id => {
         const url = `http://localhost:5000/tools/${id}`;
         fetch(url, {

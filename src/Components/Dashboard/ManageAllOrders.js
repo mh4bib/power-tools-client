@@ -12,29 +12,18 @@ const ManageAllOrders = () => {
     if (isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }
-    
-    
-    // const [orders, setOrders] = useState([]);
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/ordered-tools`;
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             // console.log(data)
-    //             setOrders(data)})
-    // }, []);
 
     const handlePending = (_id) =>{
+        // adding role property to server 
         fetch(`http://localhost:5000/ordered-tool/${_id}`, {
             method: 'PATCH',
             headers: {
-                // 'content-type': 'application/json',
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
             },
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data);
+                // console.log(data);
                 refetch();
             })
     }
@@ -46,7 +35,7 @@ const ManageAllOrders = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 refetch();
                 setId('');
             })

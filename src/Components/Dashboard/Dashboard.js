@@ -13,7 +13,7 @@ const Dashboard = () => {
             <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />
             <div className="drawer-content flex flex-col">
                 <label htmlFor="my-drawer-2" className=" w-4/12 p-1 pl-0 lg:hidden "><span>Open</span><ChevronDoubleRightIcon className="w-[21px] inline"/></label>
-                {/* <h2 className='text-[24px] my-4'>My Orders</h2> */}
+                
                 <Outlet></Outlet>
 
             </div>

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 import LoadingSpinner from '../Shared/LoadingSpinner';
 
 const MakeAdmin = () => {
+    // fetching with useQuery
     const { data, isLoading, refetch } = useQuery(['users'], () => fetch('http://localhost:5000/users')
         .then(res => res.json())
     )
@@ -12,6 +13,7 @@ const MakeAdmin = () => {
         return <LoadingSpinner></LoadingSpinner>
     }
 
+    // make admin admin access 
     const makeAdminBtn = (email) => {
         fetch(`http://localhost:5000/users/admin/${email}`, {
             method: 'PUT',
@@ -27,7 +29,7 @@ const MakeAdmin = () => {
             })
             .then(data => {
                 if (data.modifiedCount > 0) {
-                    console.log(data);
+                    // console.log(data);
                     refetch();
                     toast.success('making admin successful');
                 }

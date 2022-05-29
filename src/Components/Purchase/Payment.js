@@ -14,29 +14,18 @@ const Payment = () => {
     // console.log(total);
 
     const { _id } = useParams();
-
-    // const [orderedTool, setOrderedTool] = useState({});
     
+    // getting order from db 
     const url = `http://localhost:5000/ordered-tools/${_id}`;
     const { data, isLoading } = useQuery(['orderedTools'], () => fetch(url)
         .then(res => res.json())
         )
         console.log(data);
 
+    // handle loading 
     if (isLoading) {
         return <LoadingSpinner></LoadingSpinner>
     }
-
-    // useEffect(() => {
-    //     const url = `http://localhost:5000/ordered-tools/${_id}`
-    //     fetch(url)
-    //         .then(res => res.json())
-    //         .then(data => {
-    //             setOrderedTool(data)
-    //         })
-    //     }, []);
-    //     console.log(orderedTool.totalPrice);
-    //     const {totalPrice} = orderedTool;
 
     return (
         <div className='grid grid-cols-1 gap-4 m-4 text-neutral'>

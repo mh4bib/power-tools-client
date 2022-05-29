@@ -9,15 +9,12 @@ const MyProfile = () => {
     const { email } = useParams();
     // console.log(email);
     const [user, setUser] = useState({});
-    // const [isUpdate, setIsUpdate] = useState(false);
     useEffect(() => {
         const url = `http://localhost:5000/users/${email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setUser(data))
     }, [user, email]);
-
-    // const {education, location, phone, linkedInUrl} = user;
 
     const [education1, setEducation] = useState(user.education1);
     const [location1, setLocation] = useState(user.location1);
@@ -44,7 +41,7 @@ const MyProfile = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
+                // console.log(data)
                 toast('Your Profile is Updated');
             })
     }

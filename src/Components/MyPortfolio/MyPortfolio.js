@@ -22,9 +22,9 @@ const MyPortfolio = () => {
 
                 <h3 className='text-2xl font-semibold'>Projects I've done</h3>
                 <ul>
-                    <li>Books warehouse</li>
-                    <li>Health Corner</li>
-                    <li>Raffled Snakes</li>
+                    <li><a href="#">Books warehouse</a></li>
+                    <li><a href="#">Health Corner</a></li>
+                    <li><a href="#">Raffled Snakes</a></li>
                 </ul>
             </div>
         </div>

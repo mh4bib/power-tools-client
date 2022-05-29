@@ -14,6 +14,7 @@ const Login = () => {
     const location = useLocation();
     let from = location.state?.from?.pathname || "/";
     
+    // google sign in 
     const [signInWithGoogle, GoogleUser, GoogleLoading, GoogleError] = useSignInWithGoogle(auth);
     const [
         signInWithEmailAndPassword,
@@ -38,6 +39,7 @@ const Login = () => {
          errorMessage = <p className='text-red-600'><small>{GoogleError?.message || error.message}</small></p>
      }
 
+    //  email password sign in 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
     };

@@ -4,6 +4,7 @@ import { toast } from 'react-toastify';
 const AddTool = () => {
     const handleSubmit = event => {
         event.preventDefault();
+        // getting values from field 
         const name = event.target.name.value;
         const picture = event.target.picture.value;
         const desc = event.target.desc.value;
@@ -11,8 +12,9 @@ const AddTool = () => {
         const available = event.target.available.value;
         const price = event.target.price.value;
         const newTool = { name, picture, desc, minimum, available, price };
-        console.log(newTool);
+        // console.log(newTool);
 
+        // adding to server 
         const url = 'http://localhost:5000/tools';
         fetch(url, {
             method: 'POST',
@@ -23,7 +25,7 @@ const AddTool = () => {
         })
             .then(res => res.json())
             .then(result => {
-                console.log(result);
+                // console.log(result);
                 toast('Tool added');
             })
     }

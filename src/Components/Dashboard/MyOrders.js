@@ -11,20 +11,10 @@ const MyOrders = () => {
     const [id, setId] = useState('');
     const navigate = useNavigate();
 
-    // console.log(email);
     
     // load item 
     const [myOrders, setMyOrders] = useState([]);
-    // const loadMyOrders = async()=>{
-    //     const url = `http://localhost:5000/my-orders?email=${email}`;
-    //     const { data } = await axios.get(url, {
-    //         headers: {
-    //             authorization: `Bearer ${localStorage.getItem('accessToken')}`
-    //         }
-    //     });
-    //     setMyOrders(data);
-    // }
-    // loadMyOrders();
+    
     useEffect(() => {
         const url = `http://localhost:5000/my-orders?email=${email}`;
         fetch(url,{
