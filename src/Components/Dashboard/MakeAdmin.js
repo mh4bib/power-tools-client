@@ -5,7 +5,7 @@ import LoadingSpinner from '../Shared/LoadingSpinner';
 
 const MakeAdmin = () => {
     // fetching with useQuery
-    const { data, isLoading, refetch } = useQuery(['users'], () => fetch('https://enigmatic-plains-10725.herokuapp.com/users')
+    const { data, isLoading, refetch } = useQuery(['users'], () => fetch('https://power-tools-server-cl9m.onrender.com/users')
         .then(res => res.json())
     )
 
@@ -15,7 +15,7 @@ const MakeAdmin = () => {
 
     // make admin admin access 
     const makeAdminBtn = (email) => {
-        fetch(`https://enigmatic-plains-10725.herokuapp.com/users/admin/${email}`, {
+        fetch(`https://power-tools-server-cl9m.onrender.com/users/admin/${email}`, {
             method: 'PUT',
             headers: {
                 authorization: `Bearer ${localStorage.getItem('accessToken')}`

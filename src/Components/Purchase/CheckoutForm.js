@@ -12,7 +12,7 @@ const CheckoutForm = ({ data }) => {
     const [clientSecret, setClientSecret] = useState('');
 
     useEffect(() => {
-        fetch('https://enigmatic-plains-10725.herokuapp.com/create-payment-intent', {
+        fetch('https://power-tools-server-cl9m.onrender.com/create-payment-intent', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json',
@@ -79,7 +79,7 @@ const CheckoutForm = ({ data }) => {
             const payment = {
                 transactionId: paymentIntent.id
             }
-            fetch(`https://enigmatic-plains-10725.herokuapp.com/ordered-tools/${_id}`, {
+            fetch(`https://power-tools-server-cl9m.onrender.com/ordered-tools/${_id}`, {
                 method: 'PATCH',
                 headers: {
                     'content-type': 'application/json',

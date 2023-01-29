@@ -16,7 +16,7 @@ const Payment = () => {
     const { _id } = useParams();
     
     // getting order from db 
-    const url = `https://enigmatic-plains-10725.herokuapp.com/ordered-tools/${_id}`;
+    const url = `https://power-tools-server-cl9m.onrender.com/ordered-tools/${_id}`;
     const { data, isLoading } = useQuery(['orderedTools'], () => fetch(url)
         .then(res => res.json())
         )

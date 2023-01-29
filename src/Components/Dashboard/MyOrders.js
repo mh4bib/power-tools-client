@@ -16,7 +16,7 @@ const MyOrders = () => {
     const [myOrders, setMyOrders] = useState([]);
     
     useEffect(() => {
-        const url = `https://enigmatic-plains-10725.herokuapp.com/my-orders?email=${email}`;
+        const url = `https://power-tools-server-cl9m.onrender.com/my-orders?email=${email}`;
         fetch(url,{
             method:'GET',
             headers:{
@@ -34,7 +34,7 @@ const MyOrders = () => {
     }
 
     const handleCancelButton = id => {
-        const url = `https://enigmatic-plains-10725.herokuapp.com/my-orders/${id}`;
+        const url = `https://power-tools-server-cl9m.onrender.com/my-orders/${id}`;
         fetch(url, {
             method: 'DELETE'
         })

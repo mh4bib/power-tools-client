@@ -10,7 +10,7 @@ const MyProfile = () => {
     // console.log(email);
     const [user, setUser] = useState({});
     useEffect(() => {
-        const url = `https://enigmatic-plains-10725.herokuapp.com/users/${email}`
+        const url = `https://power-tools-server-cl9m.onrender.com/users/${email}`
         fetch(url)
             .then(res => res.json())
             .then(data => setUser(data))
@@ -31,7 +31,7 @@ const MyProfile = () => {
             linkedInUrl1
         };
 
-        const url = `https://enigmatic-plains-10725.herokuapp.com/users/${email}`;
+        const url = `https://power-tools-server-cl9m.onrender.com/users/${email}`;
         fetch(url, {
             method: 'PUT',
             headers: {

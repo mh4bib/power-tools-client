@@ -17,7 +17,7 @@ const AddReview = () => {
         const newReview = {name, picture,  comment, ratings};
 
         // post to server 
-        const url = 'https://enigmatic-plains-10725.herokuapp.com/reviews';
+        const url = 'https://power-tools-server-cl9m.onrender.com/reviews';
         fetch(url, {
             method: 'POST',
             headers: {

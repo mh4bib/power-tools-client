@@ -8,7 +8,7 @@ const useToken = user => {
             email:email
         };
         if (email) {
-            fetch(`https://enigmatic-plains-10725.herokuapp.com/users/${email}`, {
+            fetch(`https://power-tools-server-cl9m.onrender.com/users/${email}`, {
                 method: 'PUT',
                 headers: {
                     'content-type':'application/json'

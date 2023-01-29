@@ -8,7 +8,7 @@ import auth from '../../firebase.init';
 const Purchase = () => {
     const [tool, setTool] = useState({});
     useEffect(() => {
-        const url = `https://enigmatic-plains-10725.herokuapp.com/tools/${_id}`
+        const url = `https://power-tools-server-cl9m.onrender.com/tools/${_id}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -44,7 +44,7 @@ const Purchase = () => {
         const newTool = { name, email, phone, quantity, address, totalPrice };
         // console.log(newTool);
 
-        const url = 'https://enigmatic-plains-10725.herokuapp.com/ordered-tools';
+        const url = 'https://power-tools-server-cl9m.onrender.com/ordered-tools';
         fetch(url, {
             method: 'POST',
             headers: {

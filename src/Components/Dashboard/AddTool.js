@@ -15,7 +15,7 @@ const AddTool = () => {
         // console.log(newTool);
 
         // adding to server 
-        const url = 'https://enigmatic-plains-10725.herokuapp.com/tools';
+        const url = 'https://power-tools-server-cl9m.onrender.com/tools';
         fetch(url, {
             method: 'POST',
             headers: {
